@@ -3,6 +3,7 @@ BOT MERCADO LIVRE - VERSÃO FINAL OTIMIZADA
 Requisições mínimas para evitar bloqueios
 """
 
+import os
 import requests
 import time
 from datetime import datetime
@@ -10,15 +11,17 @@ from datetime import datetime
 # ============================================
 # CONFIGURAÇÕES
 # ============================================
+# Os segredos são lidos de variáveis de ambiente (veja o README),
+# para que nunca sejam commitados junto com o código.
 
 # Mercado Livre
-ML_CLIENT_ID = "x"
-ML_CLIENT_SECRET = "x"
-AFFILIATE_TAG = "x"
+ML_CLIENT_ID = os.environ.get("ML_CLIENT_ID", "")
+ML_CLIENT_SECRET = os.environ.get("ML_CLIENT_SECRET", "")
+AFFILIATE_TAG = os.environ.get("AFFILIATE_TAG", "")
 
 # Telegram
-TELEGRAM_BOT_TOKEN = "x"
-TELEGRAM_CHAT_ID = "x"
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # Filtros de ofertas
 MIN_DISCOUNT = 15      # Mínimo 15% de desconto
